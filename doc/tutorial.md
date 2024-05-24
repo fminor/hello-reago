@@ -49,17 +49,23 @@ go run main.go
 
 Open up `http://localhost:8080/` in Firefox.
 
-## Handle JSON Requests and Responses
+## Creating a RESTful API, part 1
 
-server/response.go:
+[Tutorial: Creating a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)
 
-```go
-type ApiResponse struct {
-    Message string `json:"message"`
-}
+```bash
+go mod init hello-reago/server
+```
 
-func dataHandler(w http.ResponseWriter, r *http.Request) {
-    response := ApiResponse{Message: "Hello from the Golang API!"}
-    json.NewEncoder(w).Encode(response)
-}
+```bash
+cd server
+go get -u github.com/gin-gonic/gin
+```
+
+Updated `build.sh` and `run.sh`.
+
+## Creating a RESTful API, part 2
+
+```bash
+go get -u github.com/swaggest/rest
 ```

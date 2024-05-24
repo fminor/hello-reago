@@ -5,4 +5,6 @@ pushd client
     npm run build
 popd
 
-go build server/*.go
+pushd server
+    go build .
+popd
