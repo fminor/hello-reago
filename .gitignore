@@ -19,8 +19,5 @@ server/server
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-# Go sum is generated
-go.sum
-
 # Go workspace file
 go.work
