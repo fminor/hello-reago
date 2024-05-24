@@ -77,3 +77,11 @@ go mod tidy
 ```
 
 Make sure to checkout the Swagger UI at http://localhost:8080/docs
+
+## Serve Static Content (React) with Go Chi Router
+
+```go
+    // Serve front-end
+    := http.FileServer(http.Dir("client/build"))
+    service.Router.Handle("/*", fs)
+```
