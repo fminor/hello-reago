@@ -6,6 +6,16 @@
 
 The client displays the message "Hello, ReaGo!", a text field, and a "Submit" button.  When text is entered into the text field and submitted, it replaces "ReaGo" in the message.
 
+## Quick Start
+
+1. Start the development container
+2. Compile and run the server:
+    ```bash
+    ./build.sh
+    ./run.sh
+    ```
+3. Go to `http://localhost:8080` in your browser.
+
 ## Objectives
 
 | Status | Step | Description

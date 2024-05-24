@@ -9,6 +9,7 @@ async function fetchData(): Promise<string> {
 }
 
 function App() {
+  var data = "unintialized"
   return (
     <div className="App">
       <header className="App-header">

@@ -5,8 +5,12 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello from Golang server!"))
-	})
+	// Serve React front-end
+	fs := http.FileServer(http.Dir("client/build"))
+	http.Handle("/", fs)
+
+	// API routes
+	http.HandleFunc("/api/data", dataHandler)
+
 	http.ListenAndServe(":8080", nil)
 }
