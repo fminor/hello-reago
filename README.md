@@ -30,6 +30,11 @@ The client displays the message "Hello, ReaGo!", a text field, and a "Submit" bu
 * DavidAnson.vscode-markdownlint, .md linting
 * eamodio.gitlens, git extension
 
+### VS Code settings
+
+* Format on save: editor.formatOnSave
+* Auto-save: files.autoSave
+
 ## References
 
 * [Building Scalable Web Applications with React and Golang: Best Practices](https://www.dhiwise.com/post/building-scalable-web-applications-with-react-and-golang)
