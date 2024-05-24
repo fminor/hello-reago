@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/swaggest/openapi-go/openapi3"
 	"github.com/swaggest/rest/nethttp"
 	"github.com/swaggest/rest/web"
 	"github.com/swaggest/swgui/v4emb"
@@ -84,16 +86,21 @@ func getAlbumByID() usecase.Interactor {
 }
 
 func main() {
-	service := web.DefaultService()
-
-	// Serve front-end
-	fs := http.FileServer(http.Dir("client/build"))
-	service.Handle("/", fs)
+	service := web.NewService(openapi3.NewReflector())
 
 	// API header
-	service.OpenAPI.Info.Title = "Albums API"
-	service.OpenAPI.Info.WithDescription("This service provides API to manage albums.")
-	service.OpenAPI.Info.Version = "v1.0.0"
+	service.OpenAPISchema().SetTitle("Albums API")
+	service.OpenAPISchema().SetDescription("This service provides API to manage albums.")
+	service.OpenAPISchema().SetVersion("v1.0.0")
+
+	// Additional middlewares can be added
+	service.Use(
+		middleware.StripSlashes,
+
+		// cors.AllowAll().Handler, // "github.com/rs/cors", 3rd-party CORS middleware can also be configured here.
+	)
+
+	service.Wrap()
 
 	// API routes
 	service.Get("/albums", getAlbums())
@@ -103,9 +110,13 @@ func main() {
 	// Swagger UI
 	service.Docs("/docs", v4emb.New)
 
+	// Serve front-end
+	fs := http.FileServer(http.Dir("client/build"))
+	service.Router.Handle("/*", fs)
+
 	// Start service
 	log.Println("Starting service")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe(":8080", service); err != nil {
 		log.Fatal(err)
 	}
 }
