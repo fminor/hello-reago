@@ -75,3 +75,5 @@ After writing code, before running the tutorial, I had to tidy:
 ```bash
 go mod tidy
 ```
+
+Make sure to checkout the Swagger UI at http://localhost:8080/docs

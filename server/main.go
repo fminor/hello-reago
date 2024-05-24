@@ -86,6 +86,11 @@ func getAlbumByID() usecase.Interactor {
 func main() {
 	service := web.DefaultService()
 
+	// Serve front-end
+	fs := http.FileServer(http.Dir("client/build"))
+	service.Handle("/", fs)
+
+	// API header
 	service.OpenAPI.Info.Title = "Albums API"
 	service.OpenAPI.Info.WithDescription("This service provides API to manage albums.")
 	service.OpenAPI.Info.Version = "v1.0.0"
@@ -98,8 +103,9 @@ func main() {
 	// Swagger UI
 	service.Docs("/docs", v4emb.New)
 
+	// Start service
 	log.Println("Starting service")
-	if err := http.ListenAndServe("localhost:8080", service); err != nil {
+	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
 }
