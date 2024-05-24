@@ -1,17 +1,24 @@
 package main
 
 import (
+	"context"
+	"errors"
+	"log"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/swaggest/rest/nethttp"
+	"github.com/swaggest/rest/web"
+	"github.com/swaggest/swgui/v4emb"
+	"github.com/swaggest/usecase"
+	"github.com/swaggest/usecase/status"
 )
 
 // album represents data about a record album.
 type album struct {
-	ID     string  `json:"id"`
-	Title  string  `json:"title"`
-	Artist string  `json:"artist"`
-	Price  float64 `json:"price"`
+	ID     string  `json:"id" required:"true" minLength:"1" description:"ID is a unique string that determines album."`
+	Title  string  `json:"title" required:"true" description:"Title of the album."`
+	Artist string  `json:"artist,omitempty" description:"Album author, can be empty for multi-artist compilations."`
+	Price  float64 `json:"price" minimum:"0" description:"Price in USD."`
 }
 
 // albums slice to seed record album data.
@@ -22,48 +29,77 @@ var albums = []album{
 }
 
 // getAlbums responds with the list of all albums as JSON.
-func getAlbums(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, albums)
+func getAlbums() usecase.Interactor {
+	u := usecase.NewInteractor(func(ctx context.Context, _ struct{}, output *[]album) error {
+		*output = albums
+		return nil
+	})
+	u.SetTags("Album")
+
+	return u
 }
 
 // postAlbums adds an album from JSON received in the request body.
-func postAlbums(c *gin.Context) {
-	var newAlbum album
+func postAlbums() usecase.Interactor {
+	u := usecase.NewInteractor(func(ctx context.Context, input album, output *album) error {
+		// Check if id is unique.
+		for _, a := range albums {
+			if a.ID == input.ID {
+				return status.AlreadyExists
+			}
+		}
 
-	// Call BindJSON to bind the received JSON to
-	// newAlbum.
-	if err := c.BindJSON(&newAlbum); err != nil {
-		return
-	}
+		// Add the new album to the slice.
+		albums = append(albums, input)
 
-	// Add the new album to the slice.
-	albums = append(albums, newAlbum)
-	c.IndentedJSON(http.StatusCreated, newAlbum)
+		*output = input
+		return nil
+	})
+	u.SetTags("Album")
+	u.SetExpectedErrors(status.AlreadyExists)
+
+	return u
 }
 
 // getAlbumByID locates the album whose ID value matches the id
 // parameter sent by the client, then returns that album as a response.
-func getAlbumByID(c *gin.Context) {
-	id := c.Param("id")
-
-	// Loop over the list of albums, looking for
-	// an album whose ID value matches the parameter.
-	for _, a := range albums {
-		if a.ID == id {
-			c.IndentedJSON(http.StatusOK, a)
-			return
-		}
+func getAlbumByID() usecase.Interactor {
+	type getAlbumByIDInput struct {
+		ID string `path:"id"`
 	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+
+	u := usecase.NewInteractor(func(ctx context.Context, input getAlbumByIDInput, output *album) error {
+		for _, album := range albums {
+			if album.ID == input.ID {
+				*output = album
+				return nil
+			}
+		}
+		return status.Wrap(errors.New("album not found"), status.NotFound)
+	})
+	u.SetTags("Album")
+	u.SetExpectedErrors(status.NotFound)
+
+	return u
 }
 
 func main() {
-	router := gin.Default()
+	service := web.DefaultService()
+
+	service.OpenAPI.Info.Title = "Albums API"
+	service.OpenAPI.Info.WithDescription("This service provides API to manage albums.")
+	service.OpenAPI.Info.Version = "v1.0.0"
 
 	// API routes
-	router.GET("/albums", getAlbums)
-	router.GET("/albums/:id", getAlbumByID)
-	router.POST("/albums", postAlbums)
+	service.Get("/albums", getAlbums())
+	service.Post("/albums", postAlbums(), nethttp.SuccessStatus(http.StatusCreated))
+	service.Get("/albums/{id}", getAlbumByID())
 
-	router.Run(":8080")
+	// Swagger UI
+	service.Docs("/docs", v4emb.New)
+
+	log.Println("Starting service")
+	if err := http.ListenAndServe("localhost:8080", service); err != nil {
+		log.Fatal(err)
+	}
 }

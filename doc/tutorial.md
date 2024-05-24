@@ -69,3 +69,9 @@ Updated `build.sh` and `run.sh`.
 ```bash
 go get -u github.com/swaggest/rest
 ```
+
+After writing code, before running the tutorial, I had to tidy:
+
+```bash
+go mod tidy
+```
