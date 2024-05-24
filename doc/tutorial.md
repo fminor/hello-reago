@@ -11,7 +11,7 @@ npm install -g create-react-app
 ```
 
 ```bash
-npx create-react-app client
+npx create-react-app client --template typescript
 
 cd client
 
@@ -48,3 +48,18 @@ go run main.go
 ```
 
 Open up `http://localhost:8080/` in Firefox.
+
+## Handle JSON Requests and Responses
+
+server/response.go:
+
+```go
+type ApiResponse struct {
+    Message string `json:"message"`
+}
+
+func dataHandler(w http.ResponseWriter, r *http.Request) {
+    response := ApiResponse{Message: "Hello from the Golang API!"}
+    json.NewEncoder(w).Encode(response)
+}
+```
