@@ -1,6 +1,7 @@
 {
     // Code Spell Checker settings
     "cSpell.words": [
+        "devcontainers",
         "Interactor",
         "nethttp",
         "openapi",

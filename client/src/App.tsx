@@ -2,14 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-async function fetchData(): Promise<string> {
-  const res = await fetch('api/data');
-  const data = await res.json();
-  return data;
-}
-
 function App() {
-  var data = "unintialized"
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +10,6 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <p>Data: {data}</p>
         <a
           className="App-link"
           href="https://reactjs.org"

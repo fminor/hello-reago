@@ -2,7 +2,7 @@
 
 Following [Building Scalable Web Applications with React and Golang: Best Practices](https://www.dhiwise.com/post/building-scalable-web-applications-with-react-and-golang) and taking notes.
 
-## Hello, React!
+## Hello, React
 
 From development container (with nodejs), use Facebook's React starter project to get started `create-react-app`.
 
@@ -18,7 +18,7 @@ cd client
 npm start
 ```
 
-## Hello, Go!
+## Hello, Go
 
 Using [Gazelle](https://github.com/kilpatty/Gazelle)'s structure:
 
@@ -76,7 +76,7 @@ After writing code, before running the tutorial, I had to tidy:
 go mod tidy
 ```
 
-Make sure to checkout the Swagger UI at http://localhost:8080/docs
+Make sure to checkout the Swagger UI at <http://localhost:8080/docs>
 
 ## Serve Static Content (React) with Go Chi Router
 
@@ -152,3 +152,46 @@ Integrate with VS Code using
 # golangci-lint automatically discovers .golangci.yml config 
 # you don't need to configure it in VS Code settings.
 ```
+
+## OpenAPI + React
+
+[Generating and integrating OpenAPI services in a React app](https://blog.logrocket.com/generating-integrating-openapi-services-react/)
+
+1. Skip the back-end part of the tutorial
+2. Build and Run our application
+3. Go to <http://localhost:8080/docs> and download `openapi.json`.
+
+### Generating API docs, data types, and CRUD services in our React frontend
+
+1. Install openapi
+
+   ```bash
+   npm install openapi-typescript openapi-typescript-codegen -D
+   ```
+
+2. Add the `types:openapi` command to `package.json`
+
+   ```json
+   "types:openapi": "openapi -i http://localhost:8080/docs/openapi.json -o src/services/openapi"
+   ```
+
+3. Generate the API
+
+   ```bash
+   npm run types:openapi
+   ```
+
+Check out:
+
+* `models` - Provides all the types in `Album.ts`
+* `services` - Provides all the services in `AlbumService.ts`
+
+### Integrating the generated services and types in our application
+
+Made `AlbumWrapper.ts`.
+
+### Configuring and setting defaults for generated API services
+
+Some good stuff about auth here... probably look at this more later.
+
+### Consuming the generated services in our React app
