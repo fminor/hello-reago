@@ -21,6 +21,16 @@ The client displays the message "Hello, ReaGo!", a text field, and a "Submit" bu
 5. Go to <http://localhost:8080/docs> to see the OpenAPI documentation.
 6. Scan for issues using `./scripts/scan.sh`:
 
+### Live reload
+
+In addition to compiling & running the server, run with live reload
+
+```bash
+./scripts/run.sh dev
+```
+
+Go to <http://localhost:3000>
+
 ## Objectives
 
 | Status | Step | Description

@@ -1,4 +1,6 @@
 import React from 'react';
+import {getAllAlbums,addAlbum,getOneAlbum} from './services/api/AlbumWrapper'
+import {Album, ApiError} from './services/openapi'
 import logo from './logo.svg';
 import './App.css';
 

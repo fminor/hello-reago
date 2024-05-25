@@ -49,6 +49,7 @@
     "globals": "^15.3.0",
     "openapi-typescript": "^6.7.6",
     "openapi-typescript-codegen": "^0.29.0",
-    "typescript-eslint": "^7.10.0"
+    "typescript-eslint": "^7.10.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

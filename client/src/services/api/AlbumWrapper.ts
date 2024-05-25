@@ -1,8 +1,9 @@
 import {
     AlbumService,
     Album,
-    OpenAPI
-} from './openapi';
+    OpenAPI,
+    ApiError
+} from '../openapi';
 
 const { getAlbums, postAlbums, getAlbumById } = AlbumService;
 
@@ -17,8 +18,8 @@ export const getAllAlbums = async () => {
         const albums: Array<Album> = await getAlbums();
         return albums;
 
-    } catch (error) {
-        throw new Error("getAllAlbums failed");
+    } catch (error: any) {
+        throw new Error(error);
     }
 }
 
@@ -32,8 +33,8 @@ export const getOneAlbum = async (id: string) => {
         const album: Album = await getAlbumById(id);
         return album;
 
-    } catch (error) {
-        throw new Error("getOneAlbum failed");
+    } catch (error: any) {
+        throw new Error(error);
     }
 }
 
@@ -46,7 +47,7 @@ export const addAlbum = async (album: Album) => {
     try {
         return await postAlbums(album)
     }
-    catch (error) {
-        throw new Error("addAlbum failed");
+    catch (error: any) {
+        throw new Error(error);
     }
 }

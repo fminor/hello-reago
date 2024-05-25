@@ -153,7 +153,7 @@ Integrate with VS Code using
 # you don't need to configure it in VS Code settings.
 ```
 
-## OpenAPI + React
+## OpenAPI + React (Take 1)
 
 [Generating and integrating OpenAPI services in a React app](https://blog.logrocket.com/generating-integrating-openapi-services-react/)
 
@@ -186,9 +186,11 @@ Check out:
 * `models` - Provides all the types in `Album.ts`
 * `services` - Provides all the services in `AlbumService.ts`
 
+Note: some "too-new" code was generated under `openapi/core`, I replaced `#` with `_` to get things to compile/run.  Maybe [react-openapi-client](https://www.npmjs.com/package/react-openapi-client) is a better option.
+
 ### Integrating the generated services and types in our application
 
-Made `AlbumWrapper.ts`.
+Made `api/AlbumWrapper.ts`.
 
 ### Configuring and setting defaults for generated API services
 
