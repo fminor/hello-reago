@@ -11,12 +11,13 @@ The client displays the message "Hello, ReaGo!", a text field, and a "Submit" bu
 1. Start the development container
 2. Compile and run the server:
     ```bash
-    ./build.sh
-    ./run.sh
+    ./scripts/build.sh
+    ./scripts/run.sh
     ```
 3. Go to http://localhost:8080 in your browser to see the React front-end
 4. Use `./test.sh` to verify GET/POST albums is still working.
 5. Go to http://localhost:8080/docs to see the OpenAPI documentation.
+6. Scan for issues using `./scripts/scan.sh`:
 
 ## Objectives
 
@@ -37,9 +38,7 @@ The client displays the message "Hello, ReaGo!", a text field, and a "Submit" bu
 ## Dependencies
 
 * [golang](https://golang.org/)
-    * [github.com/swaggest/openapi-go]()
-    * [github.com/swaggest/rest]()
-* [node.js](https://nodejs.org/) with [npm](https://www.npmjs.com/) to build the application bundle at compile time
+* [Node.js](https://nodejs.org/) & [TypeScript](https://www.typescriptlang.org/) with [npm](https://www.npmjs.com/) to build the application bundle at compile time
 
 ### Developer Plugins
 

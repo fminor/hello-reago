@@ -6,21 +6,32 @@
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 	"features": {
 		"ghcr.io/devcontainers/features/go:1": {},
-		"ghcr.io/devcontainers/features/node:1": {}
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/devcontainers-contrib/features/typescript:2.0.15": {}
 	},
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
+	"forwardPorts": [
+		3000,
+		8080
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
-
 	// Configure tool-specific properties.
-	// "customizations": {},
-
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"DavidAnson.vscode-markdownlint",
+				"eamodio.gitlens",
+				"redhat.vscode-yaml",
+				"dbaeumer.vscode-eslint",
+				"golang.go",
+				"42Crunch.vscode-openapi"
+			]
+		}
+	},
 	// Run as root in the container. More info: https://aka.ms/dev-containers-non-root.
 	// For me, this is done b/c my user outside the container doesn't have permission to add files inside the container
 	"remoteUser": "root"
