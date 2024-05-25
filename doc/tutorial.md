@@ -204,6 +204,10 @@ I'll come back to this...
 
 Tutorial: [React MUI TypeScript](https://www.geeksforgeeks.org/react-mui-typescript/)
 
-Material UI depends on an older version of react...
+Starting fresh from [material-ui-cra-ts](https://github.com/mui/material-ui/tree/master/examples/material-ui-cra-ts) instead of create-react-app directly.
 
-Start from [material-ui-cra-ts](https://github.com/mui/material-ui/tree/master/examples/material-ui-cra-ts) instead of create-react-app directly.
+And... the imports on this tutorial appear way out of date.
+
+Referring to [Learning Resources - Material UI](https://mui.com/material-ui/getting-started/learn/) for better or worse...
+
+

@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
 import ProTip from './ProTip';
 
 function Copyright() {
@@ -25,6 +26,7 @@ export default function App() {
           Material UI Create React App example in TypeScript
         </Typography>
         <ProTip />
+        <Button variant="contained">Hello world</Button>
         <Copyright />
       </Box>
     </Container>
