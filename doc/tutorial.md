@@ -197,3 +197,13 @@ Made `api/AlbumWrapper.ts`.
 Some good stuff about auth here... probably look at this more later.
 
 ### Consuming the generated services in our React app
+
+I'll come back to this...
+
+## React, MUI, & Typescript
+
+Tutorial: [React MUI TypeScript](https://www.geeksforgeeks.org/react-mui-typescript/)
+
+Material UI depends on an older version of react...
+
+Start from [material-ui-cra-ts](https://github.com/mui/material-ui/tree/master/examples/material-ui-cra-ts) instead of create-react-app directly.

@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
     ./server/server
 elif [ "$1" == dev ]; then
     echo "Use 'http://localhost:3000' for live reload"
-    pushd client
+    pushd client-mui-cra-ts
         npm run start
     popd
 fi
