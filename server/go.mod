@@ -17,5 +17,7 @@ require (
 	github.com/swaggest/jsonschema-go v0.3.70 // indirect
 	github.com/swaggest/refl v1.3.0 // indirect
 	github.com/vearutop/statigz v1.4.0 // indirect
+	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616 // indirect
+	golang.org/x/tools v0.21.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

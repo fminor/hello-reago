@@ -23,8 +23,12 @@ The client displays the message "Hello, ReaGo!", a text field, and a "Submit" bu
 | Status | Step | Description
 |--------|------|-------------
 | Done   | 1. | Create container with golang and node.js for development
-| Started | 2. | Configure linting & visual studio code plugins
-| Done | | Do a React+Go tutorial
+| Started | | Learn the tools
+| Done | | - Do a React+Go tutorial
+| Done | | - Tutorial: Albums API
+| | | - Use Albums REST API in React app
+| | | - Use MUI in React App
+| Done | 2. | Configure linting & visual studio code plugins
 | | 3. | Define the API between the client and server
 | | 4. | Write the server logic in Go and write Go unit tests (report coverage)
 | | 5. | Create static React app with unit tests
