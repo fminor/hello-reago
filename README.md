@@ -72,6 +72,7 @@ Go to <http://localhost:3000>
 
 * [Go Programming Language](https://go.dev/learn/)
 * [React](https://react.dev/learn) with [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html)
+* [Material UI](https://mui.com/material-ui/getting-started/learn/)
 * OpenAPI
 
 ### Tutorials
@@ -86,3 +87,9 @@ Go to <http://localhost:3000>
 
 * [Gazelle](https://github.com/kilpatty/Gazelle)
 * [Golang+Gin+React](https://github.com/roylisto/gin-golang-react/)
+
+### To Read
+
+* [TypeScript Handbook: React](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/tutorials/React.md)
+  * This introduction just seems really solid.
+  * Come back here to figure out unit tests.
