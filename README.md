@@ -93,3 +93,4 @@ Go to <http://localhost:3000>
 * [TypeScript Handbook: React](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/tutorials/React.md)
   * This introduction just seems really solid.
   * Come back here to figure out unit tests.
+* [React + Typescript Cheatsheet](https://gist.github.com/juhaelee/b80ab497f74e7393b15439c17421d299)
