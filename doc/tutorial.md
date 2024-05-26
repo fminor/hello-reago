@@ -210,4 +210,14 @@ And... the imports on this tutorial appear way out of date.
 
 Referring to [Learning Resources - Material UI](https://mui.com/material-ui/getting-started/learn/) for better or worse...
 
+## MUI Zero to Hero
+
+* [Material UI](https://mui.com/material-ui/)
+* [Learn - Material UI](https://mui.com/material-ui/getting-started/learn/)
+* [React + Material UI - From Zero to Hero](https://www.youtube.com/playlist?list=PLDxCaNaYIuUlG5ZqoQzFE27CUOoQvOqnQ)
+
+```bash
+cd client
+npm install @mui/material @emotion/react @emotion/styled
+```
 
