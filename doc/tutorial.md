@@ -215,9 +215,10 @@ Referring to [Learning Resources - Material UI](https://mui.com/material-ui/gett
 * [Material UI](https://mui.com/material-ui/)
 * [Learn - Material UI](https://mui.com/material-ui/getting-started/learn/)
 * [React + Material UI - From Zero to Hero](https://www.youtube.com/playlist?list=PLDxCaNaYIuUlG5ZqoQzFE27CUOoQvOqnQ)
+  * Note that we're using typescript, so the syntax is slightly different
 
 ```bash
 cd client
 npm install @mui/material @emotion/react @emotion/styled
+npm install react-router react-router-dom
 ```
-

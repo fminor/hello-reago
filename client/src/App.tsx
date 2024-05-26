@@ -1,13 +1,16 @@
 import React from 'react';
 import { getAllAlbums, addAlbum, getOneAlbum } from './services/api/AlbumWrapper'
 import { Album, ApiError } from './services/openapi'
-import Button from '@mui/material/Button';
+import { Outlet } from "react-router-dom";
+import Navbar from './components/Navbar/Navbar';
+import Grid from '@mui/material/Grid';
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="contained" onClick={() => console.log('Button clicked')} > First MUI Component</Button >
-    </div >
+    <Grid container>
+      <Navbar />
+      <Outlet />
+    </Grid>
   );
 }
 
