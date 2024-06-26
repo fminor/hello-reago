@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/rs/cors"
 	"github.com/swaggest/openapi-go/openapi3"
 	"github.com/swaggest/rest/nethttp"
 	"github.com/swaggest/rest/web"
@@ -22,6 +23,7 @@ func setupService() *web.Service {
 	// Additional middlewares can be added
 	service.Use(
 		middleware.StripSlashes,
+		cors.AllowAll().Handler,
 	)
 
 	service.Wrap()

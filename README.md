@@ -54,12 +54,18 @@ Go to <http://localhost:3000>
 
 ### Developer Plugins
 
+For VS Code:
+
 * streetsidesoftware.code-spell-checker, prevent myself from checking in spelling errors
 * golang.go, golang support
 * dbaeumer.vscode-eslint, typescript linting
 * DavidAnson.vscode-markdownlint, .md linting
 * eamodio.gitlens, git extension
 * 42Crunch.vscode-openapi, OpenAPI (Swagger) editor
+
+For Firefox:
+
+[React Developer Tools](https://react.dev/learn/react-developer-tools)
 
 ### VS Code settings
 

@@ -13,13 +13,6 @@ export const dashboardTheme = createTheme({
 
   },
   palette: {
-    primary:
-    {
-      main: "#deadbe"
-    },
-    secondary:
-    {
-      main: "#010101"
-    }
+
   },
 })

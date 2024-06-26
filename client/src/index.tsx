@@ -10,6 +10,7 @@ import Hosting from './pages/Hosting/Hosting';
 import Functions from './pages/Functions/Functions';
 import Database from './pages/Database/Database';
 import Storage from './pages/Storage/Storage';
+import Browse from './pages/Browse/Browse';
 import { ThemeProvider } from '@mui/material/styles';
 import { dashboardTheme } from './dashboardTheme';
 
@@ -27,6 +28,7 @@ root.render(
           <Route path="hosting" element={<Hosting />} />
           <Route path="machine-learning" element={<MachineLearning />} />
           <Route path="storage" element={<Storage />} />
+          <Route path="browse" element={<Browse />} />
         </Route>
       </Routes>
     </BrowserRouter>

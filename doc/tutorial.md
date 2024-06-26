@@ -222,3 +222,12 @@ cd client
 npm install @mui/material @emotion/react @emotion/styled
 npm install react-router react-router-dom
 ```
+
+## Serving "dynamic" content
+
+[Firefox Plugin](https://react.dev/learn/react-developer-tools)
+
+Fix CORS:
+
+* [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+* [Go Middleware](https://github.com/swaggest/rest?tab=readme-ov-file#initializing-web-service)
